@@ -1,6 +1,8 @@
 package examen2.miguelrojas;
 
-public class Computadora {
+import java.io.Serializable;
+
+public class Computadora implements Serializable{
     
     private int numero_serie;
     private int year;
@@ -12,6 +14,7 @@ public class Computadora {
     private Teclado teclado;
     private Pantalla pantalla;
     private Procesador procesador;
+    private final static long SerialVersionUID = 555l;
         
 
     public Computadora(int numero_serie, int year, String color, String material, RAM ram, DiscoDuro discoduro, Bateria bateria, Teclado teclado, Pantalla pantalla, Procesador procesador) {
@@ -109,7 +112,7 @@ public class Computadora {
 
     @Override
     public String toString() {
-        return "Computadora{" + "numero Serie = " + numero_serie + ", año = " + year + ", color = " + color +'}';
+        return "Numero de Serie = " + numero_serie + ", año = " + year + ", color = " + color;
     }
     
     

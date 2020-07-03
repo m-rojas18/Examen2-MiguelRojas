@@ -7,10 +7,18 @@ public class Tecnico {
     private String genero;
     private int cant_computadorasEnsambladas = 0;
 
+    
     public Tecnico(String nombre_tecnico, int edad_tecnico, String genero) {
         this.nombre_tecnico = nombre_tecnico;
         this.edad_tecnico = edad_tecnico;
         this.genero = genero;
+    }
+    
+    public Tecnico(String nombre_tecnico, int edad_tecnico, String genero, int cantidad_compus) {
+        this.nombre_tecnico = nombre_tecnico;
+        this.edad_tecnico = edad_tecnico;
+        this.genero = genero;
+        this.cant_computadorasEnsambladas = cantidad_compus;
     }
 
     public String getNombre_tecnico() {
