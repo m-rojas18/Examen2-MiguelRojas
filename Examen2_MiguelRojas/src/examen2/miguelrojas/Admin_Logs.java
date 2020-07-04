@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class Admin_Logs {
     
     
-    private ArrayList<String> lista_fallos = new ArrayList();
+    private ArrayList<Fallo> lista_fallos = new ArrayList();
     private File archivo = null;
     
     
@@ -20,13 +20,15 @@ public class Admin_Logs {
         archivo = new File(path);
     }
 
-    public ArrayList<String> getLista_fallos() {
+    public ArrayList<Fallo> getLista_fallos() {
         return lista_fallos;
     }
 
-    public void setLista_fallos(ArrayList<String> lista_fallos) {
+    public void setLista_fallos(ArrayList<Fallo> lista_fallos) {
         this.lista_fallos = lista_fallos;
     }
+
+    
 
     public File getArchivo() {
         return archivo;
@@ -45,8 +47,9 @@ public class Admin_Logs {
             fw = new FileWriter(archivo);
             bw = new BufferedWriter(fw);
 
-            for (String s : lista_fallos) {
-                bw.write(s + "\n");
+            for (Fallo f : lista_fallos) {
+                bw.write(f.getNombre_computadora() + ";");
+                bw.write(f.getNombre_tecnico() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -67,7 +70,7 @@ public class Admin_Logs {
                 sc = new Scanner(archivo);
                 sc.useDelimiter(";");
                 while(sc.hasNext()){
-                    lista_fallos.add(sc.next());
+                    lista_fallos.add(new Fallo(sc.next(), sc.next()));
                 }
             } catch (Exception e) {
             }

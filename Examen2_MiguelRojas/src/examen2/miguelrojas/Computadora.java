@@ -109,6 +109,7 @@ public class Computadora implements Serializable{
     public void setProcesador(Procesador procesador) {
         this.procesador = procesador;
     }
+    
 
     @Override
     public String toString() {

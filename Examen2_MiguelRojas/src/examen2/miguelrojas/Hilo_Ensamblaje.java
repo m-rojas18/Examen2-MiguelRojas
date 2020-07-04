@@ -38,9 +38,6 @@ public class Hilo_Ensamblaje extends Thread {
         this.boton_salir = boton_salir;
     }
 
-    
-    
-
     public void run() {
 
         while (empezar) {
@@ -56,12 +53,10 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj0 = {"RAM", compu.getRam().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj0);
                         tabla.setModel(modelo);
-                        //Calcular Fallo
-                        probarfallo("RAM");
                         cont++;
                     } else {
                         barra.setValue(barra.getValue() + 10);
-                        
+
                     }
                     break;
                 case 1:
@@ -73,8 +68,6 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj1 = {"Disco Duro", compu.getDiscoduro().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj1);
                         tabla.setModel(modelo);
-                        //Calcular Fallo
-                        probarfallo("Disco Duro");
                         cont++;
                     } else {
                         barra.setValue(barra.getValue() + 10);
@@ -89,8 +82,6 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj2 = {"Bateria", compu.getBateria().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj2);
                         tabla.setModel(modelo);
-                        //Calcular Fallo
-                        probarfallo("Bateria");
                         cont++;
                     } else {
                         barra.setValue(barra.getValue() + 10);
@@ -105,8 +96,6 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj3 = {"Teclado", compu.getTeclado().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj3);
                         tabla.setModel(modelo);
-                        //Calcular Fallo
-                        probarfallo("Teclado");
                         cont++;
                     } else {
                         barra.setValue(barra.getValue() + 10);
@@ -121,8 +110,6 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj4 = {"Pantalla", compu.getPantalla().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj4);
                         tabla.setModel(modelo);
-                        //Calcular Fallo
-                        probarfallo("Pantalla");
                         cont++;
                     } else {
                         barra.setValue(barra.getValue() + 10);
@@ -139,15 +126,15 @@ public class Hilo_Ensamblaje extends Thread {
                         Object[] obj5 = {"Procesador", compu.getProcesador().getTiempo_ensamblaje() + "s"};
                         modelo.addRow(obj5);
                         tabla.setModel(modelo);
-                        tecnico.setCant_computadorasEnsambladas(tecnico.getCant_computadorasEnsambladas() + 1);
-                        //Escribir
-                        at.escribirArchivo();
                         //Calcular Fallo
-                        probarfallo("Procesador");
-                        if (fallo == false) {
-                            JOptionPane.showMessageDialog(ventana, "Fallo el ensamblamiento.");
+                        probarfallo();
+                        if (fallo == true) {
+                            JOptionPane.showMessageDialog(ventana, "Ensamblamiento exitoso y sin errores.");
+                            tecnico.setCant_computadorasEnsambladas(tecnico.getCant_computadorasEnsambladas() + 1);
+                            //Escribir
+                            at.escribirArchivo();
                         } else {
-                            JOptionPane.showMessageDialog(ventana, "Ensamblaje exitoso y sin fallos.");
+                            JOptionPane.showMessageDialog(ventana, "Fallo en Ensamblamiento");
                         }
                         etiqueta.setText("Fin de Ensamblamiento");
                         boton_salir.setVisible(true);
@@ -169,8 +156,7 @@ public class Hilo_Ensamblaje extends Thread {
 
     }
 
-    public void probarfallo(String parte) {
-        fallo = false;
+    public void probarfallo() {
         Random r = new Random();
         //Calcular Fallo
         //1-5
@@ -178,37 +164,41 @@ public class Hilo_Ensamblaje extends Thread {
             int fallo1 = r.nextInt(99) + 1;
             //30%
             if (fallo1 >= 1 && fallo1 <= 30) {
-                //Generar Log
-                String fallo_salida = "Computadora " + compu + ": fallo en ensamblamiento de " + parte + " por el tecnico " + tecnico.getNombre_tecnico();
-                admin_logs.getLista_fallos().add(fallo_salida);
+                //GenerarLog
+                Fallo f = new Fallo("Numero de Serie:" + compu.getNumero_serie() + ", Color: " + compu.getColor() + ",Año: " + compu.getYear(), tecnico.getNombre_tecnico());
+                admin_logs.getLista_fallos().add(f);
                 admin_logs.escribirArchivo();
+                fallo = false;
             }
         } //6-15
         else if (tecnico.getCant_computadorasEnsambladas() >= 6 && tecnico.getCant_computadorasEnsambladas() <= 15) {
             int fallo2 = r.nextInt(99) + 1;
             if (fallo2 >= 1 && fallo2 <= 22) {
                 //Generar Log
-                String fallo_salida = "Computadora " + compu + ": fallo en ensamblamiento de " + parte + " por el tecnico " + tecnico.getNombre_tecnico();
-                admin_logs.getLista_fallos().add(fallo_salida);
+                Fallo f = new Fallo("Numero de Serie:" + compu.getNumero_serie() + ", Color: " + compu.getColor() + ",Año: " + compu.getYear(), tecnico.getNombre_tecnico());
+                admin_logs.getLista_fallos().add(f);
                 admin_logs.escribirArchivo();
+                fallo = false;
             }
         } //16 - 30
         else if (tecnico.getCant_computadorasEnsambladas() >= 16 && tecnico.getCant_computadorasEnsambladas() <= 30) {
             int fallo3 = r.nextInt(99) + 1;
             if (fallo3 >= 1 && fallo3 <= 13) {
                 //Generar Log
-                String fallo_salida = "Computadora " + compu + ": fallo en ensamblamiento de " + parte + " por el tecnico " + tecnico.getNombre_tecnico();
-                admin_logs.getLista_fallos().add(fallo_salida);
+                Fallo f = new Fallo("Numero de Serie:" + compu.getNumero_serie() + ", Color: " + compu.getColor() + ",Año: " + compu.getYear(), tecnico.getNombre_tecnico());
+                admin_logs.getLista_fallos().add(f);
                 admin_logs.escribirArchivo();
+                fallo = false;
             }
         } else {
             //mayor a 30
             int fallo4 = r.nextInt(99) + 1;
             if (fallo4 >= 1 && fallo4 <= 7) {
                 //Generar Log
-                String fallo_salida = "Computadora " + compu + ": fallo en ensamblamiento de " + parte + " por el tecnico " + tecnico.getNombre_tecnico();
-                admin_logs.getLista_fallos().add(fallo_salida);
+                Fallo f = new Fallo("Numero de Serie:" + compu.getNumero_serie() + ", Color: " + compu.getColor() + ",Año: " + compu.getYear(), tecnico.getNombre_tecnico());
+                admin_logs.getLista_fallos().add(f);
                 admin_logs.escribirArchivo();
+                fallo = false;
             }
         }
     }
