@@ -109,6 +109,15 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jb_modComputadoras = new javax.swing.JButton();
         jb_eliminarCompu = new javax.swing.JButton();
+        jd_ensamblaje = new javax.swing.JDialog();
+        jPanel10 = new javax.swing.JPanel();
+        jl_etiqueta1 = new javax.swing.JLabel();
+        jpb_ensamblaje = new javax.swing.JProgressBar();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jt_tablaEnsamblaje = new javax.swing.JTable();
+        jl_etiquetaC = new javax.swing.JLabel();
+        jl_etiquetaT = new javax.swing.JLabel();
+        jb_salir = new javax.swing.JButton();
         jd_menuTecnicos = new javax.swing.JDialog();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -141,15 +150,6 @@ public class Main extends javax.swing.JFrame {
         js_edadModT = new javax.swing.JSpinner();
         bg_modGenero = new javax.swing.ButtonGroup();
         bg_tactil = new javax.swing.ButtonGroup();
-        jd_ensamblaje = new javax.swing.JDialog();
-        jPanel10 = new javax.swing.JPanel();
-        jl_etiqueta1 = new javax.swing.JLabel();
-        jpb_ensamblaje = new javax.swing.JProgressBar();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jt_tablaEnsamblaje = new javax.swing.JTable();
-        jl_etiquetaC = new javax.swing.JLabel();
-        jl_etiquetaT = new javax.swing.JLabel();
-        jb_salir = new javax.swing.JButton();
         jd_modComputadora = new javax.swing.JDialog();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -508,6 +508,7 @@ public class Main extends javax.swing.JFrame {
         jLabel34.setText("Tactil:");
 
         bg_tactil.add(rb_tactilS);
+        rb_tactilS.setSelected(true);
         rb_tactilS.setText("Si");
 
         bg_tactil.add(rb_tactilN);
@@ -796,6 +797,90 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jl_etiqueta1.setText("Ensamblaje");
+
+        jt_tablaEnsamblaje.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Parte", "Tiempo Ensamblaje"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jt_tablaEnsamblaje);
+
+        jl_etiquetaC.setText("jLabel51");
+
+        jl_etiquetaT.setText("jLabel52");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_etiqueta1)
+                            .addComponent(jl_etiquetaC)
+                            .addComponent(jl_etiquetaT)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jl_etiqueta1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jl_etiquetaC)
+                .addGap(18, 18, 18)
+                .addComponent(jl_etiquetaT)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        jb_salir.setText("Salir");
+        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ensamblajeLayout = new javax.swing.GroupLayout(jd_ensamblaje.getContentPane());
+        jd_ensamblaje.getContentPane().setLayout(jd_ensamblajeLayout);
+        jd_ensamblajeLayout.setHorizontalGroup(
+            jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ensamblajeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jd_ensamblajeLayout.setVerticalGroup(
+            jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ensamblajeLayout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
+        );
+
         jLabel6.setText("Crear Tecnico");
 
         jLabel7.setText("Nombre:");
@@ -1033,90 +1118,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jd_modTecnicoLayout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 28, Short.MAX_VALUE))
-        );
-
-        jl_etiqueta1.setText("Ensamblaje");
-
-        jt_tablaEnsamblaje.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Parte", "Tiempo Ensamblaje"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(jt_tablaEnsamblaje);
-
-        jl_etiquetaC.setText("jLabel51");
-
-        jl_etiquetaT.setText("jLabel52");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jl_etiqueta1)
-                            .addComponent(jl_etiquetaC)
-                            .addComponent(jl_etiquetaT)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jl_etiqueta1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jl_etiquetaC)
-                .addGap(18, 18, 18)
-                .addComponent(jl_etiquetaT)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        jb_salir.setText("Salir");
-        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_salirMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jd_ensamblajeLayout = new javax.swing.GroupLayout(jd_ensamblaje.getContentPane());
-        jd_ensamblaje.getContentPane().setLayout(jd_ensamblajeLayout);
-        jd_ensamblajeLayout.setHorizontalGroup(
-            jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ensamblajeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jd_ensamblajeLayout.setVerticalGroup(
-            jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_ensamblajeLayout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jLabel50.setText("Modificar Computadora");
@@ -2230,7 +2231,57 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_modComputadorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modComputadorasMouseClicked
         //Modificar Computadora
-
+        int pos = jl_listaMod_ElimComputadoras.getSelectedIndex();
+        Computadora c = admin_compu.getLista_compus().get(pos);
+        
+        tf_numeroSerieC_mod.setText(Integer.toString(c.getNumero_serie()));
+        tf_yearC_mod.setText(Integer.toString(c.getYear()));
+        tf_colorC_mod.setText(c.getColor());
+        tf_materialC_mod.setText(c.getMaterial());
+        
+        //Poner objetos de RAM
+        js_tamanoRAM_mod.setValue(c.getRam().getTamano());
+        tf_marcaRAM_mod.setText(c.getRam().getMarca());
+        js_tiempoRAM_mod.setValue(c.getRam().getTiempo_ensamblaje());
+        
+        //Poner objetos de DD
+        js_tamanoDD_mod.setValue(c.getDiscoduro().getTamano());
+        tf_marcaDD_mod.setText(c.getDiscoduro().getMarca());
+        js_tiempoDD_mod.setValue(c.getDiscoduro().getTiempo_ensamblaje());
+        //Bateria
+        js_capacidadBateria_mod.setValue(c.getBateria().getCapacidad_horas());
+        tf_materialBateria_mod.setText(c.getBateria().getMaterial());
+        js_tiempoBateria_mod.setValue(c.getBateria().getTiempo_ensamblaje());
+        //Teclado
+        tf_colorTeclado_mod.setText(c.getTeclado().getColor());
+        tf_materialTeclado_mod.setText(c.getTeclado().getMaterial());
+        js_tiempoTeclado_mod.setValue(c.getTeclado().getTiempo_ensamblaje());
+        //Pantalla
+        if (c.getPantalla().getTactilidad().equals("Si")) {
+            rb_tactilS_mod.setSelected(true);
+            rb_tactilN_mod.setSelected(false);
+        } else {
+            rb_tactilS_mod.setSelected(false);
+            rb_tactilN_mod.setSelected(true);
+        }
+        
+        tf_tipoPantalla_mod.setText(c.getPantalla().getTipo());
+        js_tiempoPantalla_mod.setValue(c.getPantalla().getTiempo_ensamblaje());
+        //Procesador
+        
+        js_numeroNucleos_mod.setValue(c.getProcesador().getNumero_nucleos());
+        tf_velocidadProcesador_mod.setText(Double.toString(c.getProcesador().getVelocidad()));
+        js_tiempoProcesador_mod.setValue(c.getProcesador().getTiempo_ensamblaje());
+        
+        //Abrir ventana
+        jd_modComputadora.setModal(true);
+        jd_modComputadora.pack();
+        jd_modComputadora.setLocationRelativeTo(jd_menuComputadoras);
+        jd_modComputadora.setAlwaysOnTop(true);
+        jd_modComputadora.setVisible(true);
+        
+        
+        
 
     }//GEN-LAST:event_jb_modComputadorasMouseClicked
 
@@ -2464,7 +2515,7 @@ public class Main extends javax.swing.JFrame {
 
         if (crearCompu) {
             //Crear Objetos para la computadora
-            
+
             RAM ram = new RAM(tamano_ram, marca_ram, tiempo_ram);//RAM
             DiscoDuro dd = new DiscoDuro(tamano_dd, marca_dd, tiempo_dd);//Disco Duro
             Bateria bateria = new Bateria(capacidadB, material_b, tiempo_b);//Bateria
@@ -2770,7 +2821,7 @@ public class Main extends javax.swing.JFrame {
         String temp = "";
         for (int i = 0; i < admin_tecnicos.getLista_tecnicos().size(); i++) {
             Tecnico t = admin_tecnicos.getLista_tecnicos().get(i);
-            temp = "[" + i + "] Nombre: " + t.getNombre_tecnico() + ", Cantidad de Computadoras Ensambladas: " + t.getCant_computadorasEnsambladas() + "\n";
+            temp += "[" + i + "] Nombre: " + t.getNombre_tecnico() + ", Cantidad de Computadoras Ensambladas: " + t.getCant_computadorasEnsambladas() + "\n";
         }
 
         return temp;
