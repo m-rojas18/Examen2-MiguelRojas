@@ -112,10 +112,6 @@ public class Computadora implements Serializable{
 
     @Override
     public String toString() {
-        return "Numero de Serie = " + numero_serie + ", año = " + year + ", color = " + color;
-    }
-    
-    
-    
-    
+        return "Numero Serie - " + numero_serie + ", año - " + year + ", color - " + color;
+    } 
 }

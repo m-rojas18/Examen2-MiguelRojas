@@ -107,7 +107,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jl_listaMod_ElimComputadoras = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jb_modComputadoras = new javax.swing.JButton();
         jb_eliminarCompu = new javax.swing.JButton();
         jd_menuTecnicos = new javax.swing.JDialog();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -143,12 +143,81 @@ public class Main extends javax.swing.JFrame {
         bg_tactil = new javax.swing.ButtonGroup();
         jd_ensamblaje = new javax.swing.JDialog();
         jPanel10 = new javax.swing.JPanel();
-        jLabel50 = new javax.swing.JLabel();
+        jl_etiqueta1 = new javax.swing.JLabel();
         jpb_ensamblaje = new javax.swing.JProgressBar();
         jScrollPane5 = new javax.swing.JScrollPane();
         jt_tablaEnsamblaje = new javax.swing.JTable();
+        jl_etiquetaC = new javax.swing.JLabel();
+        jl_etiquetaT = new javax.swing.JLabel();
+        jb_salir = new javax.swing.JButton();
+        jd_modComputadora = new javax.swing.JDialog();
+        jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        js_tamanoRAM_mod = new javax.swing.JSpinner();
+        jLabel57 = new javax.swing.JLabel();
+        js_tiempoRAM_mod = new javax.swing.JSpinner();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        tf_marcaRAM_mod = new javax.swing.JTextField();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        rb_tactilS_mod = new javax.swing.JRadioButton();
+        rb_tactilN_mod = new javax.swing.JRadioButton();
+        jLabel62 = new javax.swing.JLabel();
+        tf_tipoPantalla_mod = new javax.swing.JTextField();
+        js_tiempoPantalla_mod = new javax.swing.JSpinner();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        tf_velocidadProcesador_mod = new javax.swing.JTextField();
+        js_numeroNucleos_mod = new javax.swing.JSpinner();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        js_tiempoProcesador_mod = new javax.swing.JSpinner();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        js_tamanoDD_mod = new javax.swing.JSpinner();
+        tf_marcaDD_mod = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        js_tiempoDD_mod = new javax.swing.JSpinner();
+        jLabel74 = new javax.swing.JLabel();
+        jb_modificarComputadora = new javax.swing.JButton();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        js_capacidadBateria_mod = new javax.swing.JSpinner();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        tf_materialBateria_mod = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        js_tiempoBateria_mod = new javax.swing.JSpinner();
+        jLabel80 = new javax.swing.JLabel();
+        tf_yearC_mod = new javax.swing.JTextField();
+        tf_colorC_mod = new javax.swing.JTextField();
+        tf_materialC_mod = new javax.swing.JTextField();
+        tf_numeroSerieC_mod = new javax.swing.JTextField();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        tf_materialTeclado_mod = new javax.swing.JTextField();
+        tf_colorTeclado_mod = new javax.swing.JTextField();
+        jLabel84 = new javax.swing.JLabel();
+        js_tiempoTeclado_mod = new javax.swing.JSpinner();
+        jLabel85 = new javax.swing.JLabel();
+        bg_tactilMod = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_listaComputadoras = new javax.swing.JList<>();
@@ -439,7 +508,6 @@ public class Main extends javax.swing.JFrame {
         jLabel34.setText("Tactil:");
 
         bg_tactil.add(rb_tactilS);
-        rb_tactilS.setSelected(true);
         rb_tactilS.setText("Si");
 
         bg_tactil.add(rb_tactilN);
@@ -665,7 +733,12 @@ public class Main extends javax.swing.JFrame {
 
         jLabel4.setText("Lista de Computadoras");
 
-        jButton4.setText("Modificar");
+        jb_modComputadoras.setText("Modificar");
+        jb_modComputadoras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modComputadorasMouseClicked(evt);
+            }
+        });
 
         jb_eliminarCompu.setText("Eliminar");
         jb_eliminarCompu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -687,7 +760,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(85, 85, 85)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jb_eliminarCompu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(jb_modComputadoras, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -698,7 +771,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_modComputadoras, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jb_eliminarCompu, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -962,18 +1035,18 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 28, Short.MAX_VALUE))
         );
 
-        jLabel50.setText("Ensamblaje");
+        jl_etiqueta1.setText("Ensamblaje");
 
         jt_tablaEnsamblaje.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Parte", "Atributo 1", "Atributo 2", "Tiempo Ensamblaje"
+                "Parte", "Tiempo Ensamblaje"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -982,9 +1055,9 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jt_tablaEnsamblaje);
 
-        jLabel51.setText("jLabel51");
+        jl_etiquetaC.setText("jLabel51");
 
-        jLabel52.setText("jLabel52");
+        jl_etiquetaT.setText("jLabel52");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -995,43 +1068,553 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel50)
-                            .addComponent(jLabel51))
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel52))
-                            .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(jl_etiqueta1)
+                            .addComponent(jl_etiquetaC)
+                            .addComponent(jl_etiquetaT)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel50)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
+                .addComponent(jl_etiqueta1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(jLabel52))
-                .addGap(32, 32, 32)
+                .addGap(17, 17, 17)
+                .addComponent(jl_etiquetaC)
+                .addGap(18, 18, 18)
+                .addComponent(jl_etiquetaT)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
+
+        jb_salir.setText("Salir");
+        jb_salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_ensamblajeLayout = new javax.swing.GroupLayout(jd_ensamblaje.getContentPane());
         jd_ensamblaje.getContentPane().setLayout(jd_ensamblajeLayout);
         jd_ensamblajeLayout.setHorizontalGroup(
             jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ensamblajeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jd_ensamblajeLayout.setVerticalGroup(
             jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jd_ensamblajeLayout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
+        );
+
+        jLabel50.setText("Modificar Computadora");
+
+        jLabel51.setText("Numero de Serie:");
+
+        jLabel52.setText("Año:");
+
+        jLabel53.setText("Color:");
+
+        jLabel54.setText("Material:");
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel55.setText("RAM");
+
+        jLabel56.setText("Tamaño:");
+
+        js_tamanoRAM_mod.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        jLabel57.setText("Tiempo de Ensamblaje:");
+
+        jLabel58.setText("s");
+
+        jLabel59.setText("Marca:");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(js_tamanoRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addComponent(jLabel55)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel14Layout.createSequentialGroup()
+                                        .addComponent(jLabel59)
+                                        .addGap(77, 77, 77)
+                                        .addComponent(tf_marcaRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel14Layout.createSequentialGroup()
+                                        .addComponent(jLabel57)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(js_tiempoRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(js_tamanoRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel59)
+                    .addComponent(tf_marcaRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel57)
+                    .addComponent(js_tiempoRAM_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel60.setText("Pantalla");
+
+        jLabel61.setText("Tactil:");
+
+        bg_tactilMod.add(rb_tactilS_mod);
+        rb_tactilS_mod.setSelected(true);
+        rb_tactilS_mod.setText("Si");
+
+        bg_tactilMod.add(rb_tactilN_mod);
+        rb_tactilN_mod.setText("No");
+
+        jLabel62.setText("Tipo:");
+
+        jLabel63.setText("Tiempo de Ensamblaje:");
+
+        jLabel64.setText("s");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel61)
+                            .addComponent(jLabel62))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                                .addComponent(rb_tactilS_mod)
+                                .addGap(27, 27, 27)
+                                .addComponent(rb_tactilN_mod))
+                            .addComponent(tf_tipoPantalla_mod, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(js_tiempoPantalla_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jLabel60)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel61)
+                    .addComponent(rb_tactilS_mod)
+                    .addComponent(rb_tactilN_mod))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel62)
+                    .addComponent(tf_tipoPantalla_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(js_tiempoPantalla_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel65.setText("Procesador");
+
+        jLabel66.setText("Numero de Nucleos:");
+
+        jLabel67.setText("Velocidad:");
+
+        jLabel68.setText("Tiempo de Ensamblaje:");
+
+        jLabel69.setText("s");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel68)
+                        .addGap(18, 18, 18)
+                        .addComponent(js_tiempoProcesador_mod, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tf_velocidadProcesador_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel66)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(js_numeroNucleos_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tf_velocidadProcesador_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel66)
+                            .addComponent(js_numeroNucleos_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel67)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68)
+                    .addComponent(jLabel69)
+                    .addComponent(js_tiempoProcesador_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel70.setText("Disco Duro");
+
+        jLabel71.setText("Tamaño:");
+
+        jLabel72.setText("Marca:");
+
+        jLabel73.setText("Tiempo de Ensamblaje:");
+
+        jLabel74.setText("s");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel70)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
+                                .addComponent(jLabel73)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addComponent(js_tiempoDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addComponent(jLabel71)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(js_tamanoDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_marcaDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(js_tiempoDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel74))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel70)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel71)
+                            .addComponent(js_tamanoDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel72)
+                            .addComponent(tf_marcaDD_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel73)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jb_modificarComputadora.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jb_modificarComputadora.setText("Modificar");
+        jb_modificarComputadora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modificarComputadoraMouseClicked(evt);
+            }
+        });
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel75.setText("Bateria");
+
+        jLabel76.setText("Capacidad:");
+
+        jLabel77.setText("hrs");
+
+        jLabel78.setText("Material:");
+
+        jLabel79.setText("Tiempo de Ensamblaje:");
+
+        jLabel80.setText("s");
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addComponent(jLabel75)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel79)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(js_tiempoBateria_mod, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel76)
+                            .addComponent(jLabel78))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addComponent(tf_materialBateria_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addComponent(js_capacidadBateria_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel77)
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel75)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel76)
+                    .addComponent(js_capacidadBateria_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel77))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel78)
+                    .addComponent(tf_materialBateria_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel79)
+                    .addComponent(js_tiempoBateria_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel80))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel81.setText("Teclado");
+
+        jLabel82.setText("Material:");
+
+        jLabel83.setText("Color:");
+
+        jLabel84.setText("Tiempo de Ensamblaje:");
+
+        jLabel85.setText("s");
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jLabel81)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                        .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                .addComponent(jLabel84)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(js_tiempoTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel82)
+                                    .addComponent(jLabel83))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_materialTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_colorTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel81)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel82)
+                    .addComponent(tf_materialTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel83)
+                    .addComponent(tf_colorTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel84)
+                    .addComponent(js_tiempoTeclado_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel85))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_modComputadoraLayout = new javax.swing.GroupLayout(jd_modComputadora.getContentPane());
+        jd_modComputadora.getContentPane().setLayout(jd_modComputadoraLayout);
+        jd_modComputadoraLayout.setHorizontalGroup(
+            jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel50)
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addComponent(jLabel51)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_numeroSerieC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addGap(96, 96, 96)
+                                .addComponent(tf_yearC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addComponent(jLabel54)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_materialC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addComponent(jLabel53)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_colorC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addComponent(jb_modificarComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jd_modComputadoraLayout.setVerticalGroup(
+            jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel50)
+                        .addGap(47, 47, 47)
+                        .addComponent(tf_yearC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel51)
+                                    .addComponent(tf_numeroSerieC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel53)
+                                    .addComponent(tf_colorC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel54)
+                                        .addComponent(tf_materialC_mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel52)))
+                            .addGroup(jd_modComputadoraLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jb_modificarComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24)
+                        .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1619,15 +2202,15 @@ public class Main extends javax.swing.JFrame {
                             jt_tablaEnsamblaje.setModel(new javax.swing.table.DefaultTableModel(
                                     new Object[][]{},
                                     new String[]{
-                                        "Parte", "Atributo 1", "Atributo 2", "Tiempo Ensamblaje"
+                                        "Parte", "Tiempo Ensamblaje"
                                     }
                             ));
-
                             //Mandar objetos a hilo
                             //abrir ventana de hilo
-                            Hilo_Ensamblaje hilo1 = new Hilo_Ensamblaje(jpb_ensamblaje, jt_tablaEnsamblaje, temp, this);
-                            hilo1.start();
-
+                            hilo = new Hilo_Ensamblaje(jpb_ensamblaje, jt_tablaEnsamblaje, temp, jl_etiqueta1, tecnicoTemp, admin_tecnicos, admin_logs, jd_ensamblaje);
+                            hilo.start();
+                            jl_etiquetaC.setText("Computadora: " + temp);
+                            jl_etiquetaT.setText("Tecnico: " + tecnicoTemp.getNombre_tecnico());
                             jd_ensamblaje.setModal(true);
                             jd_ensamblaje.pack();
                             jd_ensamblaje.setLocationRelativeTo(this);
@@ -1638,6 +2221,278 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jb_ordenEnsamblajeMouseClicked
+
+    private void jb_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMouseClicked
+        jd_ensamblaje.dispose();
+        hilo.stop();
+
+    }//GEN-LAST:event_jb_salirMouseClicked
+
+    private void jb_modComputadorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modComputadorasMouseClicked
+        //Modificar Computadora
+
+
+    }//GEN-LAST:event_jb_modComputadorasMouseClicked
+
+    private void jb_modificarComputadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarComputadoraMouseClicked
+        //Modificar Computadora
+        //Validacion 
+        //Objetos Compu
+        int numero_serie = 0, year_compu = 0;
+        String color_compu = null, material_compu = null;
+        //RAM
+        int tamano_ram = 0, tiempo_ram = 0;
+        String marca_ram = null;
+        //DiscoDuro
+        int tamano_dd = 0, tiempo_dd = 0;
+        String marca_dd = null;
+        //Bateria
+        int capacidadB = 0, tiempo_b = 0;
+        String material_b = null;
+        //Teclado
+        String material_teclado = null, color_t = null;
+        int tiempo_teclado = 0;
+        //Pantalla
+        String pantalla_tactil = null, tipo_pantalla = null;
+        int tiempo_pantalla = 0;
+        //Procesador
+        int numero_nucleosP = 0, tiempo_procesador = 0;
+        double velocidad = 0.0;
+        boolean crearCompu = true;
+
+        //Validar Entradas
+        //Numero de Serie
+        if (tf_numeroSerieC_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar numero de serie.");
+            crearCompu = false;
+        } else {
+            numero_serie = Integer.parseInt(tf_numeroSerieC_mod.getText());
+        }
+
+        //Año de compu
+        if (tf_yearC_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el año de la computadora.");
+            crearCompu = false;
+        } else {
+            year_compu = Integer.parseInt(tf_yearC_mod.getText());
+        }
+
+        //Color Compu
+        if (tf_colorC_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el color de la computadora.");
+            crearCompu = false;
+        } else {
+            color_compu = tf_colorC_mod.getText();
+        }
+
+        //Material Compu
+        if (tf_materialC_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el material de la computadora.");
+            crearCompu = false;
+        } else {
+            material_compu = tf_materialC_mod.getText();
+        }
+
+        //Validar RAM
+        //Tamaño
+        if ((int) js_tamanoRAM_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tamaño del RAM.");
+            crearCompu = false;
+        } else if ((int) js_tamanoRAM_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tamaño del RAM no puede ser < 0.");
+            crearCompu = false;
+        } else {
+            tamano_ram = (int) js_tamanoRAM_mod.getValue();
+        }
+        //Marca
+        if (tf_marcaRAM_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar la marca del RAM.");
+            crearCompu = false;
+        } else {
+            marca_ram = tf_marcaRAM_mod.getText();
+        }
+        //Tiempo Ram
+        if ((int) js_tiempoRAM_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje del RAM");
+            crearCompu = false;
+        } else if ((int) js_tiempoRAM_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje del RAM debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_ram = (int) js_tiempoRAM_mod.getValue();
+        }
+
+        //Disco Duro Validar
+        //Tamaño
+        if ((int) js_tamanoDD_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tamaño del Disco Duro.");
+            crearCompu = false;
+        } else if ((int) js_tamanoDD_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tamaño del Disco Duro no puede ser < 0.");
+            crearCompu = false;
+        } else {
+            tamano_dd = (int) js_tamanoDD_mod.getValue();
+        }
+        //Marca
+        if (tf_marcaDD_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar la marca del Disco Duro.");
+            crearCompu = false;
+        } else {
+            marca_dd = tf_marcaDD_mod.getText();
+        }
+        //Tiempo Ram
+        if ((int) js_tiempoDD_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje del Disco Duro");
+            crearCompu = false;
+        } else if ((int) js_tiempoDD_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje del Disco Duro debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_dd = (int) js_tiempoDD_mod.getValue();
+        }
+
+        //Validar Bateria
+        if ((int) js_capacidadBateria_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar la capacidad de la Bateria.");
+            crearCompu = false;
+        } else if ((int) js_capacidadBateria_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "La capacidad de la bateria debe ser > 0.");
+            crearCompu = false;
+        } else {
+            capacidadB = (int) js_capacidadBateria_mod.getValue();
+        }
+        //Marca
+        if (tf_materialBateria_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el material de la Bateria.");
+            crearCompu = false;
+        } else {
+            material_b = tf_materialBateria_mod.getText();
+        }
+        //Tiempo Bateria
+        if ((int) js_tiempoBateria_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje de la Bateria.");
+            crearCompu = false;
+        } else if ((int) js_tiempoBateria_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje de la Bateria debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_b = (int) js_tiempoBateria_mod.getValue();
+        }
+
+        //Validar Teclado
+        if (tf_materialTeclado_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el material del teclado.");
+            crearCompu = false;
+        } else {
+            material_teclado = tf_materialTeclado_mod.getText();
+        }
+
+        //Color Teclado
+        if (tf_colorTeclado_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el color del teclado.");
+            crearCompu = false;
+        } else {
+            color_t = tf_colorTeclado_mod.getText();
+        }
+
+        //Tiempo Teclado
+        if ((int) js_tiempoTeclado_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje del teclado.");
+            crearCompu = false;
+        } else if ((int) js_tiempoTeclado_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje del teclado debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_teclado = (int) js_tiempoTeclado_mod.getValue();
+        }
+
+        //Pantalla
+        //Tactil
+        if (rb_tactilS_mod.isSelected()) {
+            pantalla_tactil = "Si";
+        } else {
+            pantalla_tactil = "No";
+        }
+
+        //Tipo
+        if (tf_tipoPantalla_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tipo de pantalla.");
+            crearCompu = false;
+        } else {
+            tipo_pantalla = tf_tipoPantalla_mod.getText();
+        }
+
+        //Tiempo Pantalla
+        if ((int) js_tiempoPantalla_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje de la pantalla.");
+            crearCompu = false;
+        } else if ((int) js_tiempoPantalla_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje de la pantalla debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_pantalla = (int) js_tiempoPantalla_mod.getValue();
+        }
+
+        //Procesador Validar
+        //Numero de nucleos
+        if ((int) js_numeroNucleos_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar la cantidad de nucleos del procesador.");
+            crearCompu = false;
+        } else if ((int) js_numeroNucleos_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "La cantidad de nucleso del procesador debe ser > 0.");
+            crearCompu = false;
+        } else {
+            numero_nucleosP = (int) js_numeroNucleos_mod.getValue();
+        }
+        //Velocidad
+        if (tf_velocidadProcesador_mod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar la velocidad el procesador.");
+            crearCompu = false;
+        } else {
+            velocidad = Double.parseDouble(tf_velocidadProcesador_mod.getText());
+        }
+        //Tiempo Procesador
+        if ((int) js_tiempoProcesador_mod.getValue() == 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "Falta ingresar el tiempo de ensamblaje del procesador.");
+            crearCompu = false;
+        } else if ((int) js_tiempoProcesador_mod.getValue() < 0) {
+            JOptionPane.showMessageDialog(jd_modComputadora, "El tiempo de ensamblaje del procesador debe ser > 0.");
+            crearCompu = false;
+        } else {
+            tiempo_procesador = (int) js_tiempoProcesador_mod.getValue();
+        }
+
+        if (crearCompu) {
+            //Crear Objetos para la computadora
+            
+            RAM ram = new RAM(tamano_ram, marca_ram, tiempo_ram);//RAM
+            DiscoDuro dd = new DiscoDuro(tamano_dd, marca_dd, tiempo_dd);//Disco Duro
+            Bateria bateria = new Bateria(capacidadB, material_b, tiempo_b);//Bateria
+            Teclado t = new Teclado(material_teclado, color_t, tiempo_teclado);//Teclado
+            Pantalla p = new Pantalla(pantalla_tactil, tipo_pantalla, tiempo_pantalla);//Pantalla
+            Procesador proces = new Procesador(numero_nucleosP, velocidad, tiempo_procesador);//Procesador
+
+            //Set Valores
+            int pos = jl_listaMod_ElimComputadoras.getSelectedIndex();
+            Computadora c1 = admin_compu.getLista_compus().get(pos);
+            c1.setNumero_serie(numero_serie);
+            c1.setYear(year_compu);
+            c1.setMaterial(material_compu);
+            c1.setColor(color_compu);
+            c1.setRam(ram);
+            c1.setDiscoduro(dd);
+            c1.setBateria(bateria);
+            c1.setTeclado(t);
+            c1.setPantalla(p);
+            c1.setProcesador(proces);
+            admin_compu.escribirArchivo();
+            refrescarListaComputadoras();
+
+            JOptionPane.showMessageDialog(jd_modComputadora, "Se modifico la computadora exitosamente!!");
+            jd_modComputadora.dispose();
+            //RefrescarListas
+        }
+    }//GEN-LAST:event_jb_modificarComputadoraMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1675,7 +2530,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_genero;
     private javax.swing.ButtonGroup bg_modGenero;
     private javax.swing.ButtonGroup bg_tactil;
-    private javax.swing.JButton jButton4;
+    private javax.swing.ButtonGroup bg_tactilMod;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1724,15 +2579,54 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1754,55 +2648,87 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jb_eliminarTecnicos;
     private javax.swing.JButton jb_menuCompus;
     private javax.swing.JButton jb_menuTecnicos;
+    private javax.swing.JButton jb_modComputadoras;
     private javax.swing.JButton jb_modTecnico;
+    private javax.swing.JButton jb_modificarComputadora;
     private javax.swing.JButton jb_modificarTecnico;
     private javax.swing.JButton jb_ordenEnsamblaje;
+    private javax.swing.JButton jb_salir;
     private javax.swing.JDialog jd_ensamblaje;
     private javax.swing.JDialog jd_menuComputadoras;
     private javax.swing.JDialog jd_menuTecnicos;
+    private javax.swing.JDialog jd_modComputadora;
     private javax.swing.JDialog jd_modTecnico;
+    private javax.swing.JLabel jl_etiqueta1;
+    private javax.swing.JLabel jl_etiquetaC;
+    private javax.swing.JLabel jl_etiquetaT;
     private javax.swing.JList<String> jl_listaComputadoras;
     private javax.swing.JList<Tecnico> jl_listaModElimTecnicos;
     private javax.swing.JList<String> jl_listaMod_ElimComputadoras;
     private javax.swing.JList<Tecnico> jl_listaTecnicos;
     private javax.swing.JProgressBar jpb_ensamblaje;
     private javax.swing.JSpinner js_capacidadBateria;
+    private javax.swing.JSpinner js_capacidadBateria_mod;
     private javax.swing.JSpinner js_edad;
     private javax.swing.JSpinner js_edadModT;
     private javax.swing.JSpinner js_numeroNucleos;
+    private javax.swing.JSpinner js_numeroNucleos_mod;
     private javax.swing.JSpinner js_tamanoDD;
+    private javax.swing.JSpinner js_tamanoDD_mod;
     private javax.swing.JSpinner js_tamanoRAM;
+    private javax.swing.JSpinner js_tamanoRAM_mod;
     private javax.swing.JSpinner js_tiempoBateria;
+    private javax.swing.JSpinner js_tiempoBateria_mod;
     private javax.swing.JSpinner js_tiempoDD;
+    private javax.swing.JSpinner js_tiempoDD_mod;
     private javax.swing.JSpinner js_tiempoPantalla;
+    private javax.swing.JSpinner js_tiempoPantalla_mod;
     private javax.swing.JSpinner js_tiempoProcesador;
+    private javax.swing.JSpinner js_tiempoProcesador_mod;
     private javax.swing.JSpinner js_tiempoRAM;
+    private javax.swing.JSpinner js_tiempoRAM_mod;
     private javax.swing.JSpinner js_tiempoTeclado;
+    private javax.swing.JSpinner js_tiempoTeclado_mod;
     private javax.swing.JTable jt_tablaEnsamblaje;
     private javax.swing.JRadioButton rb_F;
     private javax.swing.JRadioButton rb_M;
     private javax.swing.JRadioButton rb_modF;
     private javax.swing.JRadioButton rb_modM;
     private javax.swing.JRadioButton rb_tactilN;
+    private javax.swing.JRadioButton rb_tactilN_mod;
     private javax.swing.JRadioButton rb_tactilS;
+    private javax.swing.JRadioButton rb_tactilS_mod;
     private javax.swing.JTextField tf_colorC;
+    private javax.swing.JTextField tf_colorC_mod;
     private javax.swing.JTextField tf_colorTeclado;
+    private javax.swing.JTextField tf_colorTeclado_mod;
     private javax.swing.JTextField tf_marcaDD;
+    private javax.swing.JTextField tf_marcaDD_mod;
     private javax.swing.JTextField tf_marcaRAM;
+    private javax.swing.JTextField tf_marcaRAM_mod;
     private javax.swing.JTextField tf_materialBateria;
+    private javax.swing.JTextField tf_materialBateria_mod;
     private javax.swing.JTextField tf_materialC;
+    private javax.swing.JTextField tf_materialC_mod;
     private javax.swing.JTextField tf_materialTeclado;
+    private javax.swing.JTextField tf_materialTeclado_mod;
     private javax.swing.JTextField tf_modNombreT;
     private javax.swing.JTextField tf_nombreTecnico;
     private javax.swing.JTextField tf_numeroSerieC;
+    private javax.swing.JTextField tf_numeroSerieC_mod;
     private javax.swing.JTextField tf_tipoPantalla;
+    private javax.swing.JTextField tf_tipoPantalla_mod;
     private javax.swing.JTextField tf_velocidadProcesador;
+    private javax.swing.JTextField tf_velocidadProcesador_mod;
     private javax.swing.JTextField tf_yearC;
+    private javax.swing.JTextField tf_yearC_mod;
     // End of variables declaration//GEN-END:variables
 
     Admin_Computadora admin_compu = new Admin_Computadora("computadoras.rojas");
     Admin_Tecnico admin_tecnicos = new Admin_Tecnico("tecnicos.txt");
+    Admin_Logs admin_logs = new Admin_Logs("log_fallos.txt");
     Tecnico tecnico_seleccionado;
+    Hilo_Ensamblaje hilo;
 
     public void refrescarListasTecnicos() {
 
