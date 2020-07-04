@@ -3,6 +3,7 @@ package examen2.miguelrojas;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,8 +24,9 @@ public class Hilo_Ensamblaje extends Thread {
     public Admin_Tecnico at;
     public Admin_Logs admin_logs;
     public JDialog ventana;
+    public JButton boton_salir;
 
-    public Hilo_Ensamblaje(JProgressBar barra, JTable tabla, Computadora compu, JLabel etiqueta, Tecnico tecnico, Admin_Tecnico at, Admin_Logs admin_logs, JDialog ventana) {
+    public Hilo_Ensamblaje(JProgressBar barra, JTable tabla, Computadora compu, JLabel etiqueta, Tecnico tecnico, Admin_Tecnico at, Admin_Logs admin_logs, JDialog ventana, JButton boton_salir) {
         this.barra = barra;
         this.tabla = tabla;
         this.compu = compu;
@@ -33,7 +35,11 @@ public class Hilo_Ensamblaje extends Thread {
         this.at = at;
         this.admin_logs = admin_logs;
         this.ventana = ventana;
+        this.boton_salir = boton_salir;
     }
+
+    
+    
 
     public void run() {
 
@@ -144,7 +150,7 @@ public class Hilo_Ensamblaje extends Thread {
                             JOptionPane.showMessageDialog(ventana, "Ensamblaje exitoso y sin fallos.");
                         }
                         etiqueta.setText("Fin de Ensamblamiento");
-                        fallo = true;
+                        boton_salir.setVisible(true);
                         empezar = false;
                     } else {
                         barra.setValue(barra.getValue() + 10);

@@ -23,6 +23,11 @@ public class Main extends javax.swing.JFrame {
             admin_tecnicos.cargarArchivo2();
             refrescarListasTecnicos();
         }
+        
+        //Cargar Log
+        if (admin_logs.getArchivo().exists()) {
+            admin_logs.cargar();
+        }
     }
 
     /**
@@ -837,7 +842,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jpb_ensamblaje, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -866,11 +871,13 @@ public class Main extends javax.swing.JFrame {
         jd_ensamblaje.getContentPane().setLayout(jd_ensamblajeLayout);
         jd_ensamblajeLayout.setHorizontalGroup(
             jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jd_ensamblajeLayout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ensamblajeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(17, 17, 17))
         );
         jd_ensamblajeLayout.setVerticalGroup(
             jd_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -878,7 +885,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 62, Short.MAX_VALUE))
         );
 
         jLabel6.setText("Crear Tecnico");
@@ -1551,7 +1558,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))))
                 .addGroup(jd_modComputadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_modComputadoraLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
@@ -2208,7 +2215,8 @@ public class Main extends javax.swing.JFrame {
                             ));
                             //Mandar objetos a hilo
                             //abrir ventana de hilo
-                            hilo = new Hilo_Ensamblaje(jpb_ensamblaje, jt_tablaEnsamblaje, temp, jl_etiqueta1, tecnicoTemp, admin_tecnicos, admin_logs, jd_ensamblaje);
+                            jb_salir.setVisible(false);
+                            Hilo_Ensamblaje hilo = new Hilo_Ensamblaje(jpb_ensamblaje, jt_tablaEnsamblaje, temp, jl_etiqueta1, tecnicoTemp, admin_tecnicos, admin_logs, jd_ensamblaje,jb_salir);
                             hilo.start();
                             jl_etiquetaC.setText("Computadora: " + temp);
                             jl_etiquetaT.setText("Tecnico: " + tecnicoTemp.getNombre_tecnico());
@@ -2225,8 +2233,6 @@ public class Main extends javax.swing.JFrame {
 
     private void jb_salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMouseClicked
         jd_ensamblaje.dispose();
-        hilo.stop();
-
     }//GEN-LAST:event_jb_salirMouseClicked
 
     private void jb_modComputadorasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modComputadorasMouseClicked
@@ -2779,7 +2785,6 @@ public class Main extends javax.swing.JFrame {
     Admin_Tecnico admin_tecnicos = new Admin_Tecnico("tecnicos.txt");
     Admin_Logs admin_logs = new Admin_Logs("log_fallos.txt");
     Tecnico tecnico_seleccionado;
-    Hilo_Ensamblaje hilo;
 
     public void refrescarListasTecnicos() {
 

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,5 +58,21 @@ public class Admin_Logs {
             Logger.getLogger(Admin_Tecnico.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+     
+     public void cargar() {
+        Scanner sc = null;
+        lista_fallos = new ArrayList();
+        if (archivo.exists()) {
+            try {
+                sc = new Scanner(archivo);
+                sc.useDelimiter(";");
+                while(sc.hasNext()){
+                    lista_fallos.add(sc.next());
+                }
+            } catch (Exception e) {
+            }
+            sc.close();
+        }
+    } 
     
 }
